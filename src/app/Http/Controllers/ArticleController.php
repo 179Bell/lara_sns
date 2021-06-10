@@ -48,7 +48,8 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
-        dd($article);
+        $article->get()->all();
+        //dd($article);
         // return view('articles.show',['article'=>$article]);
     }
 }
