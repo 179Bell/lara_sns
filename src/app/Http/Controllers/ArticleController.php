@@ -9,6 +9,11 @@ use App\Http\Requests\ArticleRequest;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Article::class, 'article');
+    }
+    
     public function index()
     {
         $articles = Article::all();
@@ -48,8 +53,6 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
-        $article->get()->all();
-        //dd($article);
-        // return view('articles.show',['article'=>$article]);
+        return view('articles.show',['article'=>$article]);
     }
 }
