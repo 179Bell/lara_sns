@@ -13,8 +13,5 @@
 Auth::routes();
 
 Route::get('/','ArticleController@index')->name('top');
-Route::resource('articles','ArticleController',['only'=>'show']);
+Route::resource('articles','ArticleController',['only'=>['show','create','index','store','edit','update']]);
 
-Route::group(['middleware'=>'auth'],function(){
-    Route::resource('articles','ArticleController',['only'=>['create','store','edit','destroy','update']]);
-});
