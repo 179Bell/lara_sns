@@ -13,5 +13,9 @@
 Auth::routes();
 
 Route::get('/','ArticleController@index')->name('top');
-Route::resource('articles','ArticleController',['only'=>['show','create','index','store','edit','update']]);
+Route::resource('articles','ArticleController',['only'=>['show','create','index','store','edit','update','destroy']]);
 
+Route::prefix('articles')->name('articles.')->group(function () {
+    Route::put('/{article}/like', 'ArticleController@like')->name('like')->middleware('auth');
+    Route::delete('/{article}/like', 'ArticleController@unlike')->name('unlike')->middleware('auth');
+});
