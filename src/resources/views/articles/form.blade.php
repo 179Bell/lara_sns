@@ -7,6 +7,11 @@
     <p>{{ $errors->first('title')}} </p>
 </div>
 <div class="form-group">
+  <article-tags-input
+  >
+  </article-tags-input>
+</div>
+<div class="form-group">
   <label></label>
   <textarea 
     name="body" 
