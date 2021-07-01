@@ -15,7 +15,7 @@ class CreateArticleTagTable extends Migration
     {
         Schema::create('article_tag', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('article_id');
+            $table->bigInteger('article_id')->unsigned();
             $table->foreign('article_id')
                 ->references('id')
                 ->on('articles')
