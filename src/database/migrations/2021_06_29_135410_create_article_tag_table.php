@@ -20,7 +20,7 @@ class CreateArticleTagTable extends Migration
                 ->references('id')
                 ->on('articles')
                 ->onDelete('cascade');
-            $table->bigInteger('tag_id');
+            $table->bigInteger('tag_id')->unsigned();
             $table->foreign('tag_id')
                 ->references('id')
                 ->on('tags')
