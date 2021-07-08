@@ -14,4 +14,10 @@ class Tag extends Model
     {
         return '#' . $this->name;
     }
+
+    public function articles()
+    {
+        return $this->belongsToMany('App\Article')->withTimestamps();
+    }
+
 }
